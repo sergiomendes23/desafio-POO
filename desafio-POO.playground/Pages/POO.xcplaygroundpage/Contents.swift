@@ -24,7 +24,8 @@ class MembersOfBand {
     }
     
     func play (music: String) {
-        print("Tipo musical: \(music)")
+        let typeMusic = "Tipo musical: \(music)"
+        print(typeMusic)
     }
 }
 var players = Band(vocal: "Salê", bass: "Caio Che", guitar: "Gods", drums: "Rony")
@@ -61,3 +62,26 @@ class CountInstrument {
 }
 let godsGuitars = CountInstrument(guitar1: 1, guitar2: 1)
 godsGuitars.resultCount()
+
+enum Specialty {
+    case rony
+    case caio
+    case gods
+    case sale
+    
+    var description: String {
+        switch self{
+        case.rony:
+            return "\(players.drums) toca bateria!"
+        case.caio:
+            return "\(players.bass) toca baixo!"
+        case.gods:
+            return "\(players.guitar) toca guitarra!"
+        case.sale:
+            return "\(players.vocal) canta!"
+        default:
+            return "A banda toca Rock!"
+        }
+    }
+}
+print(Specialty.caio.description)
