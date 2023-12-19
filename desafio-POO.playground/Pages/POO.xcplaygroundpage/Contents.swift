@@ -85,3 +85,6 @@ enum Specialty {
     }
 }
 print(Specialty.caio.description)
+print(Specialty.gods.description)
+print(Specialty.rony.description)
+print(Specialty.sale.description)
