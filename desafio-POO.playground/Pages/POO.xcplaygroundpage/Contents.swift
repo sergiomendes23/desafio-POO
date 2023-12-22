@@ -88,3 +88,36 @@ print(Specialty.caio.description)
 print(Specialty.gods.description)
 print(Specialty.rony.description)
 print(Specialty.sale.description)
+
+struct InstrumentBrand {
+    var model = String()
+    var type = String()
+}
+
+var caioInstrument = InstrumentBrand(model: "Stratocaster", type: "Baixo")
+
+print("\(players.bass) tem um \(caioInstrument.type) do medelo \(caioInstrument.model)!")
+
+
+func recPlace(from studio: String) async -> String {
+    if studio == "Sony Music" {
+        return "Ok"
+    }
+    return "Será em outro estúdio"
+}
+func playerNow(from studio: String) async -> String {
+    let pay = await recPlace(from: studio)
+    if pay == "Será em outro estúdio" {
+        return "Universal Music foi o escolhido"
+    }
+    return "Será gravado na Sony Music"
+}
+func record(to studio: String) async {
+    async let pay = recPlace(from: studio)
+    async let player = playerNow(from: studio)
+    let greeting = await "\(player), \(pay)!"
+    print(greeting)
+}
+Task {
+    await record(to: "Sony Music")
+}
